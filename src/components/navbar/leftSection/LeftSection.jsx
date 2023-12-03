@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import SearchIcon from "@mui/icons-material/Search";
 
-
 const LogoContainer = styled.div`
   width: 30%;
   margin-right: 36px;
@@ -12,7 +11,7 @@ const LeftChildContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 50%;
+  width: 60%;
   padding: 4px;
   box-sizing: border-box;
 `;
@@ -60,6 +59,7 @@ const ListInsideConatiner = styled.div`
   text-align: center;
   font-size: medium;
   font-weight: 400;
+  padding-bottom: 4px;
   gap: 4px;
 
   &:hover {
@@ -92,50 +92,49 @@ const SearchBar = styled.input.attrs({
   }
 `;
 
-const LeftNav = () => {return (<LeftChildContainer>
-    <LogoContainer>
-      <Logo />
-    </LogoContainer>
+const LeftNav = () => {
+  return (
+    <LeftChildContainer>
+      <LogoContainer>
+        <Logo />
+      </LogoContainer>
 
-    <SearchBarContainer>
-      <SearchSection>
-        <SearchBarLogo>
-          <SearchIcon />
-        </SearchBarLogo>
+      <SearchBarContainer>
+        <SearchSection>
+          <SearchBarLogo>
+            <SearchIcon />
+          </SearchBarLogo>
 
-        <SearchBar />
-      </SearchSection>
-      <AutoSuggestion>
-        {/* we have to write list here */}
-        <ListItems>
-          <li>
-            {" "}
-            <ListInsideConatiner>
-              <SearchIcon style={{ height: "20px" }} />{" "}
-              <p style={{ paddingBottom: "4px" }}>apple</p>{" "}
-            </ListInsideConatiner>{" "}
-          </li>
+          <SearchBar />
+        </SearchSection>
+        <AutoSuggestion>
+          {/* we have to write list here */}
+          <ListItems>
+            <li>
+              {" "}
+              <ListInsideConatiner>
+                <SearchIcon style={{ height: "20px" }} /> apple
+              </ListInsideConatiner>{" "}
+            </li>
 
-          <li>
-            {" "}
-            <ListInsideConatiner>
-              <SearchIcon style={{ height: "20px" }} />{" "}
-              <p style={{ paddingBottom: "4px" }}>Nokia</p>{" "}
-            </ListInsideConatiner>{" "}
-          </li>
+            <li>
+              {" "}
+              <ListInsideConatiner>
+                <SearchIcon style={{ height: "20px" }} /> Nokia
+              </ListInsideConatiner>{" "}
+            </li>
 
-          <li>
-            {" "}
-            <ListInsideConatiner>
-              <SearchIcon style={{ height: "20px" }} />{" "}
-              <p style={{ paddingBottom: "4px" }}>Mac</p>{" "}
-            </ListInsideConatiner>{" "}
-          </li>
-        </ListItems>
-      </AutoSuggestion>
-    </SearchBarContainer>
-  </LeftChildContainer>)
+            <li>
+              {" "}
+              <ListInsideConatiner>
+                <SearchIcon style={{ height: "20px" }} /> Mac
+              </ListInsideConatiner>{" "}
+            </li>
+          </ListItems>
+        </AutoSuggestion>
+      </SearchBarContainer>
+    </LeftChildContainer>
+  );
 };
 
-
-export default LeftNav
+export default LeftNav;
