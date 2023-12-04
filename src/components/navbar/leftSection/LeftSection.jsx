@@ -2,18 +2,21 @@ import React from "react";
 import styled from "styled-components";
 import SearchIcon from "@mui/icons-material/Search";
 
-const LogoContainer = styled.div`
-  width: 30%;
-  margin-right: 36px;
-`;
-
 const LeftChildContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 60%;
-  padding: 4px;
   box-sizing: border-box;
+`;
+const LogoContainer = styled.div`
+  width: 30%;
+  margin-right: 36px;
+
+  @media only screen and (max-width: 768px) {
+    width: 20%;
+    margin-right: 26px;
+  }
 `;
 
 const Logo = styled.div`
@@ -21,20 +24,35 @@ const Logo = styled.div`
 
   height: 40px;
   width: 160px;
-  overflow: hidden;
+
+  @media only screen and (max-width: 768px) {
+    max-width: 118px;
+  }
 `;
 
 const SearchSection = styled.div`
-  width: 70%;
+  width: 100%;
   display: flex;
+  align-items: center;
+  height: 3rem;
 `;
 
 const SearchBarContainer = styled.div`
   position: relative;
   height: 3rem;
-  width: 100%;
+  width: 490px;
   background-color: #f0f5ff;
   border-radius: 4px;
+
+  @media only screen and (max-width: 768px) {
+    width: 250px;
+    height: 3rem;
+    font-size: 12px;
+
+    @media only screen and (min-width: 768px) {
+      font-size: 15px;
+    }
+  }
 `;
 
 const AutoSuggestion = styled.div`
@@ -57,7 +75,7 @@ const ListInsideConatiner = styled.div`
   display: flex;
   align-items: center;
   text-align: center;
-  font-size: medium;
+
   font-weight: 400;
   padding-bottom: 4px;
   gap: 4px;
@@ -72,23 +90,32 @@ const SearchBarLogo = styled.div`
   align-self: center;
   margin-left: 8px;
   padding: 8px 4px 4px 4px;
+  @media only screen and (max-width: 768px) {
+    margin-left: 4px;
+    padding: 4px 2px 2px 2px;
+  }
 `;
 
 const SearchBar = styled.input.attrs({
   placeholder: "Search for Products, Brands and More",
 })`
   background-color: #f0f5ff;
-  height: 40px;
   width: 100%;
   border: none;
   cursor: text;
 
-  font-size: 1.2rem;
   font-style: normal;
-  font-weight: 10;
+
   border-radius: 4px;
   &:focus {
     outline: none;
+  }
+
+  @media only screen and (max-width: 768px) {
+    font-size: 12px;
+  }
+  @media only screen and (min-width: 768px) {
+    font-size: 15px;
   }
 `;
 

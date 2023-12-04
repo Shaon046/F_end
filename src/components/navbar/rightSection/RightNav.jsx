@@ -7,9 +7,10 @@ import StorefrontIcon from "@mui/icons-material/Storefront";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import ExitToAppOutlinedIcon from "@mui/icons-material/ExitToAppOutlined";
-import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
-import SupportAgentIcon from '@mui/icons-material/SupportAgent';
-import VerticalAlignBottomIcon from '@mui/icons-material/VerticalAlignBottom';
+import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
+import SupportAgentIcon from "@mui/icons-material/SupportAgent";
+import VerticalAlignBottomIcon from "@mui/icons-material/VerticalAlignBottom";
+
 const RightChildContainer = styled.div`
   display: flex;
   justify-content: space-around;
@@ -35,30 +36,55 @@ const LoginContainer = styled.div`
 const Login = styled.div`
   position: relative;
   display: flex;
-  height: 2.5rem;
-  width: 100%;
+  height: 3rem;
+  width: 120px;
   padding: 4px;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
+  gap: 6px;
   border: 1px;
   border: hidden;
   box-sizing: border-box;
+  text-transform: capitalize;
+  @media only screen and (max-width: 768px) {
+    font-size: 12px;
+  }
+  @media only screen and (min-width: 768px) {
+    font-size: 15px;
+  }
+
   &:hover {
     background-color: #fafafa;
     border-radius: 4px 4px 0 0;
     animation-delay: 250ms;
     border: 1px solid #c7cddb;
   }
+
+  @media only screen and (max-width: 768px) {
+    height: 40px;
+    width: 94px;
+  }
 `;
 
 const Dropdown = styled.div`
   position: relative;
   top: 0px;
- 
+
   width: 9rem;
   border-radius: 0 0 4px 4px;
   background-color: #ffffff;
   box-shadow: 1px 1px 8px #f1f2f4;
+  text-align: center;
+  font-weight: 400;
+  color: black;
+  text-transform: capitalize;
+
+  @media only screen and (max-width: 768px) {
+    font-size: 12px;
+  }
+  @media only screen and (min-width: 768px) {
+    font-size: 15px;
+  }
 `;
 
 const ListContainer = styled.li`
@@ -71,7 +97,6 @@ const ListInsideConatiner = styled.div`
   display: flex;
   align-items: center;
   text-align: center;
-  font-size: medium;
   font-weight: 400;
   gap: 4px;
   padding: 2px;
@@ -80,17 +105,15 @@ const ListInsideConatiner = styled.div`
   }
 `;
 
-const LoginText = styled.p`
-  text-align: center;
-  font-weight: 400;
-  color: black;
-  text-transform: capitalize;
-  font-size: 1rem;
-`;
-
 const CartConatiner = styled.div`
   display: flex;
   align-items: center;
+  @media only screen and (max-width: 768px) {
+    font-size: 12px;
+  }
+  @media only screen and (min-width: 768px) {
+    font-size: 15px;
+  }
 `;
 
 const CartItem = styled.div`
@@ -114,7 +137,6 @@ const CartText = styled.p`
   font-weight: 400;
   color: black;
   text-transform: capitalize;
-  font-size: 1rem;
 `;
 
 const BecomeSellerContainer = styled.div`
@@ -122,6 +144,10 @@ const BecomeSellerContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: 0.3rem;
+
+  @media only screen and (max-width: 992px) {
+    display: none;
+  }
 `;
 const BecomeSellerText = styled.p`
   text-align: center;
@@ -133,24 +159,41 @@ const BecomeSellerText = styled.p`
 
 const MoreContainer = styled.div`
   height: 1.2rem;
+
   width: 0.5rem;
-  padding: 4px;
+  padding: 6px;
+
+  @media only screen and (max-width: 768px) {
+    font-size: 12px;
+  }
+  @media only screen and (min-width: 768px) {
+    font-size: 15px;
+  }
 `;
 
 const More = styled.div`
   position: relative;
-  top: 22px;
-  right: 156px;
- 
-  width: 12rem;
+  top: 0px;
+  right: 170px;
+  width: 11.6rem;
+
   border-radius: 0 0 4px 4px;
   background-color: #ffffff;
   box-shadow: 1px 1px 8px #f1f2f4;
+
+  @media only screen and (max-width: 768px) {
+    font-size: 12px;
+
+    top: 0;
+  }
+  @media only screen and (min-width: 768px) {
+    font-size: 15px;
+  }
 `;
 
 const MoreList = styled.li`
   list-style: none;
- 
+
   color: #757575;
 `;
 const MoreInsideConatiner = styled.div`
@@ -158,10 +201,10 @@ const MoreInsideConatiner = styled.div`
   padding-bottom: 9px;
   align-items: center;
   text-align: center;
-  font-size: small;
+
   font-weight: 400;
   gap: 4px;
-  
+  padding: 8px;
   &:hover {
     background-color: #f0f5ff;
   }
@@ -173,24 +216,24 @@ const RightNav = () => {
       <LoginContainer>
         <Login>
           <AccountCircleOutlinedIcon style={{ height: "1rem" }} />
-          <LoginText>shaon</LoginText>
+          shaon
           <KeyboardArrowDownRoundedIcon style={{ height: "1rem" }} />
           {/* <KeyboardArrowUpRoundedIcon/> */}
         </Login>
 
         <Dropdown>
-          <ListContainer style={{paddingTop:"0"}}>
-            <ListInsideConatiner >
-              <AccountCircleOutlinedIcon style={{ height: "20px" }} /> Your
+          <ListContainer style={{ paddingTop: "0" }}>
+            <ListInsideConatiner>
+              <AccountCircleOutlinedIcon style={{ height: "1rem" }} /> Your
               Account
             </ListInsideConatiner>
 
             <ListInsideConatiner>
-              <LocalShippingIcon style={{ height: "20px" }} /> Order
+              <LocalShippingIcon style={{ height: "1rem" }} /> Order
             </ListInsideConatiner>
 
             <ListInsideConatiner>
-              <ExitToAppOutlinedIcon style={{ height: "20px" }} /> Logout
+              <ExitToAppOutlinedIcon style={{ height: "1rem" }} /> Logout
             </ListInsideConatiner>
           </ListContainer>
         </Dropdown>
@@ -209,24 +252,22 @@ const RightNav = () => {
 
       <MoreContainer>
         <MoreVertIcon />
-        <More >
+        <More>
+          <MoreList>
+            <MoreInsideConatiner>
+              <NotificationsNoneIcon /> Notification
+            </MoreInsideConatiner>
+            <MoreInsideConatiner>
+              <SupportAgentIcon />
+              24x7 customer Care
+            </MoreInsideConatiner>
 
-<MoreList>
-  <MoreInsideConatiner>
-    <NotificationsNoneIcon/> Notification
-  </MoreInsideConatiner>
-  <MoreInsideConatiner>
-<SupportAgentIcon/>24x7 customer Care
-  </MoreInsideConatiner>
-
-  <MoreInsideConatiner>
-    <VerticalAlignBottomIcon/>Download
-  </MoreInsideConatiner>
- 
-</MoreList>
-
+            <MoreInsideConatiner>
+              <VerticalAlignBottomIcon />
+              Download
+            </MoreInsideConatiner>
+          </MoreList>
         </More>
-        
       </MoreContainer>
     </RightChildContainer>
   );

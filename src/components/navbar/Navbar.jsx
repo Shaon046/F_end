@@ -19,14 +19,14 @@ const Container = styled.div`
   box-sizing: border-box;
 `;
 
-
-
 const Navbar = () => {
   return (
-    <Container>
-      <LeftNav />
-      <RightNav />
-    </Container>
+    <header>
+      <Container>
+        <LeftNav />
+        <RightNav />
+      </Container>
+    </header>
   );
 };
 
