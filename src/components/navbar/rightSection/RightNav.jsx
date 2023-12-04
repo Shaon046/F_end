@@ -85,6 +85,10 @@ const Dropdown = styled.div`
   @media only screen and (min-width: 768px) {
     font-size: 15px;
   }
+
+
+
+  display: none;
 `;
 
 const ListContainer = styled.li`
@@ -188,6 +192,12 @@ const More = styled.div`
   }
   @media only screen and (min-width: 768px) {
     font-size: 15px;
+
+
+
+
+
+    display: none;
   }
 `;
 

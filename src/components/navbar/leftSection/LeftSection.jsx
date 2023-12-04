@@ -65,6 +65,9 @@ const AutoSuggestion = styled.div`
   border-radius: 0 0 4px 4px;
   background-color: #ffffff;
   box-shadow: 1px 1px 8px #f1f2f4;
+
+
+  display: none;
 `;
 
 const ListItems = styled.li`
