@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded";
+import KeyboardArrowUpRoundedIcon from "@mui/icons-material/KeyboardArrowUpRounded";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import StorefrontIcon from "@mui/icons-material/Storefront";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
@@ -10,6 +11,7 @@ import ExitToAppOutlinedIcon from "@mui/icons-material/ExitToAppOutlined";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import VerticalAlignBottomIcon from "@mui/icons-material/VerticalAlignBottom";
+import { Link } from "react-router-dom";
 
 const RightChildContainer = styled.div`
   display: flex;
@@ -55,7 +57,7 @@ const Login = styled.div`
 
   &:hover {
     background-color: #fafafa;
-    border-radius: 4px 4px 0 0;
+    border-radius: 4px;
     animation-delay: 250ms;
     border: 1px solid #c7cddb;
   }
@@ -85,10 +87,6 @@ const Dropdown = styled.div`
   @media only screen and (min-width: 768px) {
     font-size: 15px;
   }
-
-
-
-  display: none;
 `;
 
 const ListContainer = styled.li`
@@ -192,12 +190,6 @@ const More = styled.div`
   }
   @media only screen and (min-width: 768px) {
     font-size: 15px;
-
-
-
-
-
-    display: none;
   }
 `;
 
@@ -221,63 +213,97 @@ const MoreInsideConatiner = styled.div`
 `;
 
 const RightNav = () => {
+  const [loginHover, setLoginHover] = useState(false);
+  const [moreHover, setMoreHover] = useState(false);
+
   return (
     <RightChildContainer>
       <LoginContainer>
-        <Login>
+        <Login
+          onMouseOver={() => setLoginHover(true)}
+          onMouseLeave={() => {
+            setLoginHover(false);
+          }}
+        >
           <AccountCircleOutlinedIcon style={{ height: "1rem" }} />
           shaon
-          <KeyboardArrowDownRoundedIcon style={{ height: "1rem" }} />
-          {/* <KeyboardArrowUpRoundedIcon/> */}
+          {!loginHover && (
+            <KeyboardArrowDownRoundedIcon style={{ height: "1rem" }} />
+          )}
+          {loginHover && (
+            <KeyboardArrowUpRoundedIcon style={{ height: "1rem" }} />
+          )}
         </Login>
 
-        <Dropdown>
-          <ListContainer style={{ paddingTop: "0" }}>
-            <ListInsideConatiner>
-              <AccountCircleOutlinedIcon style={{ height: "1rem" }} /> Your
-              Account
-            </ListInsideConatiner>
+        {loginHover && (
+          <Dropdown
+            onMouseOver={() => setLoginHover(true)}
+            onMouseLeave={() => {
+              setLoginHover(false);
+            }}
+          >
+            <ListContainer style={{ paddingTop: "0" }}>
+              <ListInsideConatiner>
+                <AccountCircleOutlinedIcon style={{ height: "1rem" }} /> Your
+                Account
+              </ListInsideConatiner>
 
-            <ListInsideConatiner>
-              <LocalShippingIcon style={{ height: "1rem" }} /> Order
-            </ListInsideConatiner>
+              <ListInsideConatiner>
+                <LocalShippingIcon style={{ height: "1rem" }} /> Order
+              </ListInsideConatiner>
 
-            <ListInsideConatiner>
-              <ExitToAppOutlinedIcon style={{ height: "1rem" }} /> Logout
-            </ListInsideConatiner>
-          </ListContainer>
-        </Dropdown>
+              <ListInsideConatiner>
+                <ExitToAppOutlinedIcon style={{ height: "1rem" }} /> Logout
+              </ListInsideConatiner>
+            </ListContainer>
+          </Dropdown>
+        )}
       </LoginContainer>
 
-      <CartConatiner>
-        <ShoppingCartOutlinedIcon />
-        <CartItem>1</CartItem>
-        <CartText>Cart</CartText>
-      </CartConatiner>
+      <Link to="/cart" className="Link">
+        <CartConatiner>
+          <ShoppingCartOutlinedIcon />
+          <CartItem>1</CartItem>
+          <CartText>Cart</CartText>
+        </CartConatiner>
+      </Link>
 
-      <BecomeSellerContainer>
-        <StorefrontIcon />
-        <BecomeSellerText>Become a Seller</BecomeSellerText>
-      </BecomeSellerContainer>
-
-      <MoreContainer>
+      <Link to="/BecomeSeller" className="Link">
+        <BecomeSellerContainer>
+          <StorefrontIcon />
+          <BecomeSellerText>Become a Seller</BecomeSellerText>
+        </BecomeSellerContainer>
+      </Link>
+      <MoreContainer
+        onMouseOver={() => setMoreHover(true)}
+        onMouseLeave={() => {
+          setMoreHover(false);
+        }}
+      >
         <MoreVertIcon />
-        <More>
-          <MoreList>
-            <MoreInsideConatiner>
-              <NotificationsNoneIcon /> Notification
-            </MoreInsideConatiner>
-            <MoreInsideConatiner>
-              <SupportAgentIcon />
-              24x7 customer Care
-            </MoreInsideConatiner>
+        {moreHover && (
+          <More
+            onMouseOver={() => setMoreHover(true)}
+            onMouseLeave={() => {
+              setMoreHover(false);
+            }}
+          >
+            <MoreList>
+              <MoreInsideConatiner>
+                <NotificationsNoneIcon /> Notification
+              </MoreInsideConatiner>
+              <MoreInsideConatiner>
+                <SupportAgentIcon />
+                24x7 customer Care
+              </MoreInsideConatiner>
 
-            <MoreInsideConatiner>
-              <VerticalAlignBottomIcon />
-              Download
-            </MoreInsideConatiner>
-          </MoreList>
-        </More>
+              <MoreInsideConatiner>
+                <VerticalAlignBottomIcon />
+                Download
+              </MoreInsideConatiner>
+            </MoreList>
+          </More>
+        )}
       </MoreContainer>
     </RightChildContainer>
   );

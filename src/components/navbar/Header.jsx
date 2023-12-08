@@ -3,6 +3,9 @@ import styled from "styled-components";
 
 import LeftNav from "./leftSection/LeftSection";
 import RightNav from "./rightSection/RightNav";
+import { useLocation } from "react-router-dom";
+
+
 const Container = styled.div`
   height: 4rem;
   width: 100%;
@@ -20,9 +23,12 @@ const Container = styled.div`
 `;
 
 const Navbar = () => {
+
+const location=useLocation()
+
   return (
     <header>
-      <Container>
+      <Container >
         <LeftNav />
         <RightNav />
       </Container>
